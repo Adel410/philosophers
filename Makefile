@@ -6,7 +6,7 @@
 #    By: ahadj-ar <ahadj-ar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/12 18:49:29 by ahadj-ar          #+#    #+#              #
-#    Updated: 2024/10/22 17:25:31 by ahadj-ar         ###   ########.fr        #
+#    Updated: 2024/10/27 14:24:51 by ahadj-ar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,8 +23,6 @@ FILES	=	srcs/main.c \
 			srcs/init_and_cleanup.c \
 			srcs/thread_tools.c \
 			srcs/tools.c \
-			srcs/tools2.c \
-			srcs/tools3.c \
 
 
 INCLUDE	= 	include/philo.h

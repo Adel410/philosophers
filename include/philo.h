@@ -6,7 +6,7 @@
 /*   By: ahadj-ar <ahadj-ar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 18:47:29 by ahadj-ar          #+#    #+#             */
-/*   Updated: 2024/10/26 21:09:01 by ahadj-ar         ###   ########.fr       */
+/*   Updated: 2024/10/27 14:36:49 by ahadj-ar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,6 @@ void				sleeping(t_philo *ptr);
 void				thinking(t_philo *ptr);
 void				eating(t_philo *ptr);
 long				get_time(void);
-int					dont_starve(t_philo *philo);
 int					check_flags(t_philo *ptr);
 void				take_forks(t_philo *ptr);
 void				drop_forks(t_philo *ptr);
@@ -97,13 +96,11 @@ long				time_diff(t_philo *ptr);
 
 // TOOLS
 
-void				ft_putstr(char *str);
 void				ft_putstr_fd(char *s, int fd);
 void				*ft_calloc(size_t nmemb, size_t size);
 void				ft_bzero(void *s, size_t n);
 int					ft_strlen(char *str);
-int					ft_atoi(const char *str);
-int					ft_isspace(char c);
+long				ft_atol(const char *str);
 int					ft_isdigit(char c);
 
 #endif

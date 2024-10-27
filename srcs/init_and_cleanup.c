@@ -6,7 +6,7 @@
 /*   By: ahadj-ar <ahadj-ar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 20:46:08 by ahadj-ar          #+#    #+#             */
-/*   Updated: 2024/10/26 21:03:08 by ahadj-ar         ###   ########.fr       */
+/*   Updated: 2024/10/27 14:11:46 by ahadj-ar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void	init_table(t_table *table, char **av)
 
 	i = -1;
 	table->end_flag = 0;
-	table->nb_philo = ft_atoi(av[1]);
+	table->nb_philo = ft_atol(av[1]);
 	if (av[5])
-		table->meal_max = ft_atoi(av[5]);
+		table->meal_max = ft_atol(av[5]);
 	else
 		table->meal_max = 0;
 	table->start_time = get_time();
@@ -40,9 +40,9 @@ void	init_philos(t_philo *philo, t_table *table, char **av, int i)
 	philo->id = i + 1;
 	philo->meal = 0;
 	philo->last_meal = table->start_time;
-	philo->d_time = ft_atoi(av[2]);
-	philo->e_time = ft_atoi(av[3]);
-	philo->s_time = ft_atoi(av[4]);
+	philo->d_time = ft_atol(av[2]);
+	philo->e_time = ft_atol(av[3]);
+	philo->s_time = ft_atol(av[4]);
 	philo->nb_philo = table->nb_philo;
 	philo->fork_left = &table->fork[i];
 	philo->fork_right = &table->fork[(i + 1) % table->nb_philo];

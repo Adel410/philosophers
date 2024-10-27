@@ -1,21 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tools.c                                         :+:      :+:    :+:   */
+/*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahadj-ar <ahadj-ar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 14:17:00 by ahadj-ar          #+#    #+#             */
-/*   Updated: 2024/10/13 14:19:14 by ahadj-ar         ###   ########.fr       */
+/*   Updated: 2024/10/27 14:24:23 by ahadj-ar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
-
-void	ft_putstr(char *str)
-{
-	write(1, str, ft_strlen(str));
-}
 
 int	ft_strlen(char *str)
 {
@@ -27,6 +22,18 @@ int	ft_strlen(char *str)
 	while (str[i])
 		i++;
 	return (i);
+}
+
+void	ft_bzero(void *s, size_t n)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < n)
+	{
+		((unsigned char *)s)[i] = '\0';
+		i++;
+	}
 }
 
 void	*ft_calloc(size_t nmemb, size_t size)
@@ -51,26 +58,32 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	return (tab);
 }
 
-int	ft_strcmp(char *s1, char *s2)
+void	ft_putstr_fd(char *s, int fd)
 {
-	int	i;
-
-	i = 0;
-	while (s1[i] && s2[i] && s1[i] == s2[i])
-		i++;
-	return (s1[i] - s2[i]);
+	write(fd, s, ft_strlen(s));
 }
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+long	ft_atol(const char *str)
 {
-	size_t	i;
+	int		i;
+	long	sign;
+	long	result;
 
 	i = 0;
-	if (n == 0)
-		return (0);
-	while (s1[i] && s2[i] && (s1[i] == s2[i]) && (i < n - 1))
+	sign = 1;
+	result = 0;
+	while (str[i] == ' ' || (str[i] >= '\t' && str[i] <= '\r'))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
+		if (str[i] == '-')
+			sign = -1;
 		i++;
 	}
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		result = result * 10 + (str[i] - '0');
+		i++;
+	}
+	return ((result * sign));
 }
