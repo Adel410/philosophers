@@ -77,7 +77,7 @@ void	*routine(void *arg)
 	return (NULL);
 }
 
-void	solo_philo(t_philo *philo)
+void	solo_philo(t_philo *philo, t_table *table)
 {
 	long	current_time;
 
@@ -86,6 +86,7 @@ void	solo_philo(t_philo *philo)
 	usleep((philo->d_time) * 1000);
 	printf("%ld %d has taken a fork\n", current_time, philo->id);
 	print_routine(philo, 4);
+	cleanup(philo, table);
 }
 
 void	create_philos(t_table *table, char **av)
@@ -101,7 +102,7 @@ void	create_philos(t_table *table, char **av)
 	i = -1;
 	if (table->nb_philo == 1)
 	{
-		solo_philo(&philo[0]);
+		solo_philo(&philo[0], table);
 		return ;
 	}
 	while (++i < table->nb_philo)
